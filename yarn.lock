@@ -163,6 +163,16 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
+"@electric-sql/pglite-react@^0.2.12":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@electric-sql/pglite-react/-/pglite-react-0.2.12.tgz#ec4efe820aefec13e33fcbf75c2678ab1f404a26"
+  integrity sha512-j489fJeCZ1jw6S88L9hPoBxEkqaOhd/U1bi/AomXa2tDv/E36eNK2ZCTYVrb1TAoaAZgYf92dBv+m4VrDb8RDA==
+
+"@electric-sql/pglite@^0.2.12":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@electric-sql/pglite/-/pglite-0.2.12.tgz#bf2bac86773d47acfd777e333cd0576ce0657a20"
+  integrity sha512-J/X42ujcoFEbOkgRyoNqZB5qcqrnJRWVlwpH3fKYoJkTz49N91uAK/rDSSG/85WRas9nC9mdV4FnMTxnQWE/rw==
+
 "@esbuild/aix-ppc64@0.21.5":
   version "0.21.5"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz#c7184a326533fcdf1b8ee0733e21c713b975575f"
