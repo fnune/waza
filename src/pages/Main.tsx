@@ -1,4 +1,5 @@
 import { useLiveQuery } from "@electric-sql/pglite-react";
+import { sql } from "kysely";
 import { useQuery } from "../services/database";
 
 export function Main() {
@@ -9,6 +10,18 @@ export function Main() {
       .selectFrom("waza")
       .select(["id", "japanese", "romaji", "video_links", "categories"])
       .execute(),
+  );
+
+  const { value: commonWords } = useQuery((db) =>
+    sql`
+      SELECT word, COUNT(word) AS count
+      FROM (
+        SELECT jsonb_array_elements_text(words_romaji) AS word
+        FROM waza
+      ) AS unnested_words
+      GROUP BY word
+      ORDER BY count DESC
+  `.execute(db),
   );
 
   return (
@@ -32,6 +45,14 @@ export function Main() {
               );
             })}
           </ul>
+        </>
+      )}
+      {commonWords && (
+        <>
+          <h2>Common Words</h2>
+          <pre>
+            <code>{JSON.stringify(commonWords, null, 2)}</code>
+          </pre>
         </>
       )}
       <h2>Health</h2>
