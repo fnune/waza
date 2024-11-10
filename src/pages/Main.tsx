@@ -14,12 +14,17 @@ export function Main() {
 
   const { value: commonWords } = useQuery((db) =>
     sql`
-      SELECT word, COUNT(word) AS count
+      SELECT
+        w.word AS japanese,
+        COUNT(w.word) AS count,
+        MIN(wd.romaji) AS romaji,
+        MIN(wd.english) AS english
       FROM (
-        SELECT jsonb_array_elements_text(words_romaji) AS word
+        SELECT jsonb_array_elements_text(words_japanese) AS word
         FROM waza
-      ) AS unnested_words
-      GROUP BY word
+      ) AS w
+      LEFT JOIN words wd ON w.word = wd.japanese
+      GROUP BY w.word
       ORDER BY count DESC
   `.execute(db),
   );
