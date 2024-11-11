@@ -30,6 +30,7 @@ export const words = [
   { romaji: "ippon", japanese: "一本", english: "one full point", key: "ippon" },
   { romaji: "jime", japanese: "絞", english: "choke", key: "jime" },
   { romaji: "juji", japanese: "十字", english: "cross", key: "juji" },
+  { romaji: "kaeshi", japanese: "返", english: "reversal", key: "kaeshi" },
   { romaji: "kakato", japanese: "踵", english: "heel", key: "kakato" },
   { romaji: "kami", japanese: "上", english: "upper", key: "kami" },
   { romaji: "kani", japanese: "蟹", english: "crab", key: "kani" },
@@ -45,15 +46,18 @@ export const words = [
   { romaji: "kobushi", japanese: "拳", english: "fist", key: "kobushi" },
   { romaji: "komi", japanese: "込", english: "inward", key: "komi" },
   { romaji: "koshi", japanese: "腰", english: "hip", key: "koshi" },
+  { romaji: "kubi", japanese: "首", english: "neck", key: "kubi" },
   { romaji: "kuchiki", japanese: "朽木", english: "rotten wood", key: "kuchiki" },
   { romaji: "kuzure", japanese: "崩", english: "variation", key: "kuzure" },
   { romaji: "kyusho", japanese: "急所", english: "vital spot", key: "kyusho" },
+  { romaji: "ma", japanese: "前", english: "front", key: "ma" },
   { romaji: "ma", japanese: "真", english: "rear", key: "ma" },
-  { romaji: "makikomi", japanese: "巻込", english: "wraparound", key: "makikomi" },
+  { romaji: "maki", japanese: "巻", english: "wrap", key: "maki" },
   { romaji: "makura", japanese: "枕", english: "pillow", key: "makura" },
   { romaji: "mata", japanese: "股", english: "thigh", key: "mata" },
   { romaji: "mi", japanese: "身", english: "body", key: "mi" },
   { romaji: "morote", japanese: "双手", english: "two hands", key: "morote" },
+  { romaji: "mune", japanese: "胸", english: "chest", key: "mune" },
   { romaji: "nage", japanese: "投げ", english: "throwing", key: "nage" },
   { romaji: "nami", japanese: "並", english: "normal", key: "nami" },
   { romaji: "nikyo", japanese: "二教", english: "second group", key: "nikyo" },
@@ -93,7 +97,7 @@ export const words = [
   { romaji: "uchi", japanese: "内", english: "inside", key: "uchi" },
   { romaji: "ude", japanese: "腕", english: "arm", key: "ude" },
   { romaji: "uki", japanese: "浮", english: "floating", key: "uki" },
-  { romaji: "ura", japanese: "裏", english: "reverse", key: "ura" },
+  { romaji: "ura", japanese: "裏", english: "behind", key: "ura" },
   { romaji: "ushiro", japanese: "後", english: "rear", key: "ushiro" },
   { romaji: "utsuri", japanese: "移", english: "shift", key: "utsuri" },
   { romaji: "wakare", japanese: "分", english: "separation", key: "wakare" },
@@ -394,7 +398,7 @@ export const waza: {
   {
     romaji: "hane-makikomi",
     japanese: "跳巻込",
-    words: ["hane", "makikomi"],
+    words: ["hane", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "dai-yonkyo"],
   },
   {
@@ -418,7 +422,7 @@ export const waza: {
   {
     romaji: "soto-makikomi",
     japanese: "外巻込",
-    words: ["soto", "makikomi"],
+    words: ["soto", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "dai-yonkyo"],
   },
   {
@@ -524,7 +528,7 @@ export const waza: {
   {
     romaji: "uchi-makikomi",
     japanese: "内巻込",
-    words: ["uchi", "makikomi"],
+    words: ["uchi", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "habukareta-waza"],
   },
 
@@ -604,7 +608,7 @@ export const waza: {
   {
     romaji: "osoto-makikomi",
     japanese: "大外巻込",
-    words: ["o", "soto", "makikomi"],
+    words: ["o", "soto", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "shinmeisho-no-waza"],
   },
   {
@@ -616,13 +620,13 @@ export const waza: {
   {
     romaji: "harai-makikomi",
     japanese: "払巻込",
-    words: ["harai", "makikomi"],
+    words: ["harai", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "shinmeisho-no-waza"],
   },
   {
     romaji: "uchi-mata-makikomi",
     japanese: "内股巻込",
-    words: ["uchi", "mata", "makikomi"],
+    words: ["uchi", "mata", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "shinmeisho-no-waza"],
   },
   {
@@ -646,7 +650,7 @@ export const waza: {
   {
     romaji: "kouchi-makikomi",
     japanese: "小内巻込",
-    words: ["ko", "uchi", "makikomi"],
+    words: ["ko", "uchi", "maki", "komi"],
     categories: ["nage-waza", "yoko-sutemi-waza", "shinmeisho-no-waza"],
   },
 
