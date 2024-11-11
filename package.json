@@ -13,6 +13,7 @@
   "dependencies": {
     "@electric-sql/pglite": "^0.2.12",
     "@electric-sql/pglite-react": "^0.2.12",
+    "@tanstack/react-router": "^1.81.2",
     "jotai": "^2.10.1",
     "kysely": "^0.27.4",
     "kysely-pglite": "^0.6.1",
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@tanstack/router-devtools": "^1.81.2",
+    "@tanstack/router-plugin": "^1.79.0",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

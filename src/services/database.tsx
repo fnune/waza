@@ -1,14 +1,16 @@
 import { PGlite } from "@electric-sql/pglite";
 import { type LiveNamespace, live } from "@electric-sql/pglite/live";
-import { atom } from "jotai";
+import { atom, useAtomValue } from "jotai";
 import { Kysely, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler } from "kysely";
 import { Migrator } from "kysely";
-import { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 
 import { PGliteDriver } from "~/database/driver";
 import { down, up } from "~/database/schema";
 import type { DB } from "~/database/types";
 
+import { PGliteProvider } from "@electric-sql/pglite-react";
+import { loadable } from "jotai/utils";
 import { type AsyncState, useAsyncStateFromLoadable } from "./async";
 
 async function initializePGlite() {
@@ -71,4 +73,11 @@ export function useQuery<Result>(
   if (client.isError) return { isError: true, error: client.error };
 
   return state;
+}
+
+export function DatabaseProvider({ children }: PropsWithChildren) {
+  const pglite = useAtomValue(loadable(pgliteAtom));
+  if (pglite.state === "loading") return <>Loading...</>;
+  if (pglite.state === "hasError") return <>Error: {JSON.stringify(pglite, null, 2)}</>;
+  return <PGliteProvider db={pglite.data}>{children}</PGliteProvider>;
 }

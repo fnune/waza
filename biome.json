@@ -1,4 +1,7 @@
 {
+  "files": {
+    "ignore": ["src/routeTree.gen.ts"]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",

@@ -1,11 +1,16 @@
 import { useLiveQuery } from "@electric-sql/pglite-react";
+import { createLazyFileRoute } from "@tanstack/react-router";
 import { sql } from "kysely";
 
 import { Word } from "~/components/Word";
 import type { WordKey } from "~/database/data";
 import { useQuery } from "~/services/database";
 
-export function Main() {
+export const Route = createLazyFileRoute("/")({
+  component: RouteComponent,
+});
+
+function RouteComponent() {
   const version = useLiveQuery("SELECT version();");
 
   const { value: waza, error: wazaError } = useQuery((db) =>

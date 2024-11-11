@@ -1,18 +1,21 @@
-import { PGliteProvider } from "@electric-sql/pglite-react";
-import { useAtomValue } from "jotai";
-import { loadable } from "jotai/utils";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { StrictMode } from "react";
 
-import { Main } from "./pages/Main";
-import { pgliteAtom } from "./services/database";
+import { routeTree } from "./routeTree.gen";
+
+const router = createRouter({ routeTree });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 function App() {
-  const pglite = useAtomValue(loadable(pgliteAtom));
-  if (pglite.state === "loading") return <>Loading...</>;
-  if (pglite.state === "hasError") return <>Error: {JSON.stringify(pglite, null, 2)}</>;
   return (
-    <PGliteProvider db={pglite.data}>
-      <Main />
-    </PGliteProvider>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
   );
 }
 
