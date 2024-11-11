@@ -24,7 +24,7 @@ export const words = [
   { romaji: "hane", japanese: "跳", english: "spring", key: "hane" },
   { romaji: "hara", japanese: "腹", english: "abdomen", key: "hara" },
   { romaji: "harai", japanese: "払", english: "sweep", key: "harai" },
-  { romaji: "hikikomi", japanese: "引込", english: "pulling in", key: "hikikomi" },
+  { romaji: "hiki", japanese: "引", english: "pull", key: "hiki" },
   { romaji: "hiza", japanese: "膝", english: "knee", key: "hiza" },
   { romaji: "ikkyo", japanese: "一教", english: "first group", key: "ikkyo" },
   { romaji: "ippon", japanese: "一本", english: "one full point", key: "ippon" },
@@ -43,7 +43,7 @@ export const words = [
   { romaji: "kinshi", japanese: "禁止", english: "forbidden", key: "kinshi" },
   { romaji: "ko", japanese: "小", english: "small", key: "ko" },
   { romaji: "kobushi", japanese: "拳", english: "fist", key: "kobushi" },
-  { romaji: "komi", japanese: "込", english: "pulling", key: "komi" },
+  { romaji: "komi", japanese: "込", english: "inward", key: "komi" },
   { romaji: "koshi", japanese: "腰", english: "hip", key: "koshi" },
   { romaji: "kuchiki", japanese: "朽木", english: "rotten wood", key: "kuchiki" },
   { romaji: "kuzure", japanese: "崩", english: "variation", key: "kuzure" },
@@ -512,7 +512,7 @@ export const waza: {
   {
     romaji: "hikikomi-gaeshi",
     japanese: "引込返",
-    words: ["hikikomi", "gaeshi"],
+    words: ["hiki", "komi", "gaeshi"],
     categories: ["nage-waza", "ma-sutemi-waza", "habukareta-waza"],
   },
   {
