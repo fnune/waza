@@ -51,7 +51,6 @@ export const words = [
   { romaji: "kuzure", japanese: "崩", english: "variation", key: "kuzure" },
   { romaji: "kyusho", japanese: "急所", english: "vital spot", key: "kyusho" },
   { romaji: "ma", japanese: "前", english: "front", key: "ma" },
-  { romaji: "ma", japanese: "真", english: "rear", key: "ma" },
   { romaji: "maki", japanese: "巻", english: "wrap", key: "maki" },
   { romaji: "makura", japanese: "枕", english: "pillow", key: "makura" },
   { romaji: "mata", japanese: "股", english: "thigh", key: "mata" },
