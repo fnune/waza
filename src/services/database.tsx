@@ -5,11 +5,11 @@ import { Kysely, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler } 
 import { Migrator } from "kysely";
 import { useEffect, useState } from "react";
 
-import { type AsyncState, useAsyncStateFromLoadable } from "./async";
+import { PGliteDriver } from "~/database/driver";
+import { down, up } from "~/database/schema";
+import type { DB } from "~/database/types";
 
-import { PGliteDriver } from "../database/driver";
-import type { DB } from "../database/types";
-import { down, up } from "../database/schema";
+import { type AsyncState, useAsyncStateFromLoadable } from "./async";
 
 async function initializePGlite() {
   return PGlite.create({ extensions: { live } });

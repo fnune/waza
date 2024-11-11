@@ -1,5 +1,5 @@
-import type { WordKey } from "../database/data";
-import { useQuery } from "../services/database";
+import type { WordKey } from "~/database/data";
+import { useQuery } from "~/services/database";
 
 export function useWord(wordKey: WordKey) {
   const state = useQuery((db) =>

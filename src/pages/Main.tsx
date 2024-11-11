@@ -1,9 +1,9 @@
 import { useLiveQuery } from "@electric-sql/pglite-react";
 import { sql } from "kysely";
 
-import { Word } from "../components/Word";
-import type { WordKey } from "../database/data";
-import { useQuery } from "../services/database";
+import { Word } from "~/components/Word";
+import type { WordKey } from "~/database/data";
+import { useQuery } from "~/services/database";
 
 export function Main() {
   const version = useLiveQuery("SELECT version();");

@@ -1,5 +1,5 @@
-import type { WordKey } from "../database/data";
-import { useWord } from "../queries/useWord";
+import type { WordKey } from "~/database/data";
+import { useWord } from "~/queries/useWord";
 
 type Props = { wordKey: WordKey };
 

@@ -10,6 +10,13 @@
     ],
     "module": "ESNext",
     "skipLibCheck": true,
+    /* Paths */
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    },
     /* Bundler mode */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
