@@ -8,9 +8,11 @@ import { useQuery } from "../services/database";
 export function Main() {
   const version = useLiveQuery("SELECT version();");
 
-  const { value: waza } = useQuery((db) => db.selectFrom("waza").selectAll("waza").execute());
+  const { value: waza, error: wazaError } = useQuery((db) =>
+    db.selectFrom("waza").selectAll("waza").execute(),
+  );
 
-  const { value: commonWords } = useQuery((db) =>
+  const { value: commonWords, error: commonWordsError } = useQuery((db) =>
     sql`
       SELECT ww.word_key AS key, COUNT(ww.word_key) AS count
       FROM waza_words ww
@@ -18,6 +20,14 @@ export function Main() {
       ORDER BY count DESC
   `.execute(db),
   );
+
+  if (wazaError || commonWordsError) {
+    return (
+      <pre>
+        <code>{String(wazaError || commonWordsError)}</code>
+      </pre>
+    );
+  }
 
   return (
     <>
