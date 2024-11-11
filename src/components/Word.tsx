@@ -1,11 +1,9 @@
-import type { WordKey } from "~/database/data";
-import { useWord } from "~/queries/useWord";
+import { type WordKey, wordsRecord } from "~/data";
 
 type Props = { wordKey: WordKey };
 
 export function Word({ wordKey }: Props) {
-  const { value: word } = useWord(wordKey);
-  if (!word) return null;
+  const word = wordsRecord[wordKey];
   return (
     <span>
       {word.japanese} ({word.romaji}, {word.english})

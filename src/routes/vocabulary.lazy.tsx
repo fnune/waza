@@ -5,5 +5,5 @@ export const Route = createLazyFileRoute("/vocabulary")({
 });
 
 function RouteComponent() {
-  return "Hello /vocabulary!";
+  return null;
 }

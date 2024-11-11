@@ -11,8 +11,4 @@ export default defineConfig({
       "~": path.resolve(__dirname, "./src"),
     },
   },
-  optimizeDeps: {
-    // https://pglite.dev/docs/bundler-support#vite
-    exclude: ["@electric-sql/pglite"],
-  },
 });

@@ -110,6 +110,11 @@ export const words = [
 
 export type WordKey = (typeof words)[number]["key"];
 
+export const wordsRecord = Object.fromEntries(words.map((word) => [word.key, word])) as Record<
+  WordKey,
+  (typeof words)[number]
+>;
+
 export const categories = [
   {
     romaji: "nage-waza",

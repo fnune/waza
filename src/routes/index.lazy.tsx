@@ -1,78 +1,55 @@
-import { useLiveQuery } from "@electric-sql/pglite-react";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { sql } from "kysely";
 
 import { Word } from "~/components/Word";
-import type { WordKey } from "~/database/data";
-import { useQuery } from "~/services/database";
+import { type WordKey, waza } from "~/data";
 
 export const Route = createLazyFileRoute("/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const version = useLiveQuery("SELECT version();");
+  const counts = waza.reduce<Partial<Record<WordKey, number>>>((acc, item) => {
+    for (const word of item.words) {
+      acc[word] = (acc[word] || 0) + 1;
+    }
+    return acc;
+  }, {});
 
-  const { value: waza, error: wazaError } = useQuery((db) =>
-    db.selectFrom("waza").selectAll("waza").execute(),
-  );
-
-  const { value: commonWords, error: commonWordsError } = useQuery((db) =>
-    sql`
-      SELECT ww.word_key AS key, COUNT(ww.word_key) AS count
-      FROM waza_words ww
-      GROUP BY ww.word_key
-      ORDER BY count DESC
-  `.execute(db),
-  );
-
-  if (wazaError || commonWordsError) {
-    return (
-      <pre>
-        <code>{String(wazaError || commonWordsError)}</code>
-      </pre>
-    );
-  }
+  const sorted = Object.entries(counts)
+    .sort(([, a], [, b]) => b - a)
+    .reduce<Partial<Record<WordKey, number>>>((acc, [word, count]) => {
+      acc[word as WordKey] = count;
+      return acc;
+    }, {});
 
   return (
     <>
       <h1>Waza</h1>
       <p>A learning resource for judo practitioners.</p>
-      {!waza && <p>Loading...</p>}
-      {waza && (
-        <>
-          <h2>Techniques ({waza.length})</h2>
-          <ul>
-            {waza.map(({ id, japanese, romaji }) => {
-              return (
-                <li key={id}>
-                  {japanese} ({romaji})
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )}
-      {commonWords && (
-        <>
-          <h2>Common Words</h2>
-          <ul>
-            {commonWords.rows.map((word) => {
-              const key = (word as { key: WordKey }).key;
-              const count = (word as { count: number }).count;
-              return (
-                <li key={key}>
-                  <Word wordKey={key} />: {count}
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )}
-      <h2>Health</h2>
-      <pre>
-        <code>{JSON.stringify(version, null, 2)}</code>
-      </pre>
+      <>
+        <h2>Techniques ({waza.length})</h2>
+        <ul>
+          {waza.map(({ japanese, romaji }) => {
+            return (
+              <li key={romaji}>
+                {japanese} ({romaji})
+              </li>
+            );
+          })}
+        </ul>
+      </>
+      <>
+        <h2>Common Words</h2>
+        <ul>
+          {Object.entries(sorted).map(([wordKey, count]) => {
+            return (
+              <li key={wordKey}>
+                <Word wordKey={wordKey as WordKey} />: {count}
+              </li>
+            );
+          })}
+        </ul>
+      </>
     </>
   );
 }
