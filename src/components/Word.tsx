@@ -7,8 +7,8 @@ export function Word({ wordKey }: Props) {
   const { value: word } = useWord(wordKey);
   if (!word) return null;
   return (
-    <span title={`${word.romaji} — ${word.japanese} (${word.english})`}>
-      {word.romaji} ({word.english})
+    <span>
+      {word.japanese} ({word.romaji}, {word.english})
     </span>
   );
 }

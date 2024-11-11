@@ -1,6 +1,8 @@
 import { useLiveQuery } from "@electric-sql/pglite-react";
 import { sql } from "kysely";
 
+import { Word } from "../components/Word";
+import type { WordKey } from "../database/data";
 import { useQuery } from "../services/database";
 
 export function Main() {
@@ -10,14 +12,9 @@ export function Main() {
 
   const { value: commonWords } = useQuery((db) =>
     sql`
-      SELECT
-        wd.japanese AS japanese,
-        COUNT(wd.japanese) AS count,
-        MIN(wd.romaji) AS romaji,
-        MIN(wd.english) AS english
+      SELECT ww.word_key AS key, COUNT(ww.word_key) AS count
       FROM waza_words ww
-      JOIN words wd ON ww.word_key = wd.key
-      GROUP BY wd.japanese
+      GROUP BY ww.word_key
       ORDER BY count DESC
   `.execute(db),
   );
@@ -44,9 +41,17 @@ export function Main() {
       {commonWords && (
         <>
           <h2>Common Words</h2>
-          <pre>
-            <code>{JSON.stringify(commonWords, null, 2)}</code>
-          </pre>
+          <ul>
+            {commonWords.rows.map((word) => {
+              const key = (word as { key: WordKey }).key;
+              const count = (word as { count: number }).count;
+              return (
+                <li key={key}>
+                  <Word wordKey={key} />: {count}
+                </li>
+              );
+            })}
+          </ul>
         </>
       )}
       <h2>Health</h2>
