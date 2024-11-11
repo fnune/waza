@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate": "kysely-pglite ./src/database/migrator.ts --outFile ./src/database/generated.ts"
+    "generate": "kysely-pglite ./src/database/data.ts --outFile ./src/database/types.ts"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.2.12",

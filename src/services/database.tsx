@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 import { type AsyncState, useAsyncStateFromLoadable } from "./async";
 
 import { PGliteDriver } from "../database/driver";
-import type { DB } from "../database/generated";
-import { down, up } from "../database/migrator";
+import type { DB } from "../database/types";
+import { down, up } from "../database/data";
 
 async function initializePGlite() {
   return PGlite.create({ extensions: { live } });

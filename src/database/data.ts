@@ -1,6 +1,6 @@
 import type { Kysely } from "kysely";
 
-import type { DB } from "./generated";
+import type { DB } from "./types";
 
 export async function up(db: Kysely<DB>) {
   await db.schema
