@@ -1,7 +1,7 @@
 import type { Kysely } from "kysely";
 
+import { type CategoryKey, type WordKey, categories, waza, words } from "./data";
 import type { DB } from "./types";
-import { categories, CategoryKey, waza, WordKey, words } from "./data";
 
 export async function up(db: Kysely<DB>) {
   await db.schema
@@ -26,7 +26,6 @@ export async function up(db: Kysely<DB>) {
     .addColumn("romaji", "text", (cb) => cb.notNull())
     .addColumn("japanese", "text", (cb) => cb.notNull())
     .addColumn("english", "text", (cb) => cb.notNull())
-    .addColumn("description", "text")
     .execute();
 
   await db.schema
@@ -121,7 +120,6 @@ export async function up(db: Kysely<DB>) {
           romaji: string;
           japanese: string;
           english: string;
-          description?: string;
           key: WordKey;
         }[]
       >,

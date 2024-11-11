@@ -33,7 +33,6 @@ export interface WazaWords {
 }
 
 export interface Words {
-  description: string | null;
   english: string;
   japanese: string;
   key: string;
