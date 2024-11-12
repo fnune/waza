@@ -10,3 +10,12 @@ export function Word({ wordKey }: Props) {
     </span>
   );
 }
+
+export function InlineWord({ wordKey }: Props) {
+  const word = wordsRecord[wordKey];
+  return (
+    <>
+      {word.japanese} {word.romaji}, {word.english}
+    </>
+  );
+}

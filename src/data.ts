@@ -3,10 +3,11 @@ export const words = [
   { romaji: "ashi", japanese: "脚", english: "leg", key: "ashi-leg" },
   { romaji: "ashi", japanese: "足", english: "foot", key: "ashi-foot" },
   { romaji: "ate", japanese: "当て", english: "strike", key: "ate" },
+  { romaji: "barai", japanese: "払", english: "sweep", key: "barai" },
   { romaji: "basami", japanese: "挟", english: "scissors", key: "basami" },
   { romaji: "dai", japanese: "大", english: "great or major", key: "dai" },
   { romaji: "daki", japanese: "抱", english: "embrace", key: "daki" },
-  { romaji: "de", japanese: "出", english: "advanced", key: "de" },
+  { romaji: "de", japanese: "出", english: "advancing", key: "de" },
   { romaji: "do", japanese: "胴", english: "trunk", key: "do" },
   { romaji: "eri", japanese: "襟", english: "lapel", key: "eri" },
   { romaji: "gaeshi", japanese: "返", english: "reversal", key: "gaeshi" },
@@ -25,6 +26,8 @@ export const words = [
   { romaji: "hara", japanese: "腹", english: "abdomen", key: "hara" },
   { romaji: "harai", japanese: "払", english: "sweep", key: "harai" },
   { romaji: "hiki", japanese: "引", english: "pull", key: "hiki" },
+  { romaji: "hikikomi", japanese: "引込", english: "pulling inward", key: "hikikomi" },
+  { romaji: "hikite", japanese: "引手", english: "pulling hand", key: "hikite" },
   { romaji: "hiza", japanese: "膝", english: "knee", key: "hiza" },
   { romaji: "ikkyo", japanese: "一教", english: "first group", key: "ikkyo" },
   { romaji: "ippon", japanese: "一本", english: "one full point", key: "ippon" },
@@ -55,6 +58,7 @@ export const words = [
   { romaji: "makura", japanese: "枕", english: "pillow", key: "makura" },
   { romaji: "mata", japanese: "股", english: "thigh", key: "mata" },
   { romaji: "mi", japanese: "身", english: "body", key: "mi" },
+  { romaji: "moro", japanese: "双", english: "two", key: "moro" },
   { romaji: "morote", japanese: "双手", english: "two hands", key: "morote" },
   { romaji: "mune", japanese: "胸", english: "chest", key: "mune" },
   { romaji: "nage", japanese: "投げ", english: "throwing", key: "nage" },
@@ -65,6 +69,7 @@ export const words = [
   { romaji: "obi", japanese: "帯", english: "belt", key: "obi" },
   { romaji: "okuri", japanese: "送", english: "sliding", key: "okuri" },
   { romaji: "okuriashi", japanese: "送足", english: "sliding foot", key: "okuriashi" },
+  { romaji: "osae", japanese: "抑", english: "suppress", key: "osae" },
   { romaji: "osaekomi", japanese: "抑込", english: "pinning", key: "osaekomi" },
   { romaji: "otoshi", japanese: "落", english: "drop", key: "otoshi" },
   { romaji: "ryo", japanese: "両", english: "both", key: "ryo" },
@@ -93,6 +98,8 @@ export const words = [
   { romaji: "tsubame", japanese: "燕", english: "swallow", key: "tsubame" },
   { romaji: "tsukkomi", japanese: "突込", english: "thrust", key: "tsukkomi" },
   { romaji: "tsuri", japanese: "釣", english: "lifting", key: "tsuri" },
+  { romaji: "tsurikomi", japanese: "釣込", english: "lifting and pulling", key: "tsurikomi" },
+  { romaji: "tsurite", japanese: "釣手", english: "lifting hand", key: "tsurite" },
   { romaji: "uchi", japanese: "内", english: "inside", key: "uchi" },
   { romaji: "ude", japanese: "腕", english: "arm", key: "ude" },
   { romaji: "uki", japanese: "浮", english: "floating", key: "uki" },
@@ -230,12 +237,7 @@ export const categories = [
 
 export type CategoryKey = (typeof categories)[number]["romaji"];
 
-export const waza: {
-  romaji: string;
-  japanese: string;
-  words: WordKey[];
-  categories: CategoryKey[];
-}[] = [
+export const waza = [
   // Dai Ikkyo (1st Group)
   {
     romaji: "deashi-harai",
@@ -855,4 +857,16 @@ export const waza: {
     words: ["sankaku", "gatame"],
     categories: ["katame-waza", "kansetsu-waza"],
   },
-];
+] as const satisfies {
+  romaji: string;
+  japanese: string;
+  words: WordKey[];
+  categories: CategoryKey[];
+}[];
+
+export type WazaKey = (typeof waza)[number]["romaji"];
+
+export const wazaRecord = Object.fromEntries(waza.map((waza) => [waza.romaji, waza])) as Record<
+  WazaKey,
+  (typeof waza)[number]
+>;
