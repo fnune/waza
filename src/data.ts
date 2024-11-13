@@ -35,7 +35,7 @@ export const words = [
   { romaji: "juji", japanese: "十字", english: "cross", key: "juji" },
   { romaji: "kaeshi", japanese: "返", english: "reversal", key: "kaeshi" },
   { romaji: "kakato", japanese: "踵", english: "heel", key: "kakato" },
-  { romaji: "kami", japanese: "上", english: "upper", key: "kami" },
+  { romaji: "kami", japanese: "上", english: "above", key: "kami" },
   { romaji: "kani", japanese: "蟹", english: "crab", key: "kani" },
   { romaji: "kansetsu", japanese: "関節", english: "joint-lock", key: "kansetsu" },
   { romaji: "kata", japanese: "片", english: "single", key: "kata-single" },

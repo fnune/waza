@@ -59,11 +59,11 @@ export function Vocabulary() {
 
       <WordGroup>
         <NewWord word="yoko">Side ⟷</NewWord>
-        <NewWord word="kami">Top ↑</NewWord>
+        <NewWord word="kami">Above ↑</NewWord>
+        <NewWord word="ushiro">Behind ↑</NewWord>
         <NewWord word="ma">Front ↓</NewWord>
-        <NewWord word="sumi">Corner ↘</NewWord>
-        <NewWord word="ushiro">Rear ↑</NewWord>
         <NewWord word="ura">Back ↑</NewWord>
+        <NewWord word="sumi">Corner ↘</NewWord>
         <NewWord word="tate">Vertical ↥</NewWord>
       </WordGroup>
       <WordGroup>
