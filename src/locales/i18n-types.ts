@@ -607,7 +607,7 @@ type RootTranslation = {
 		mata: string
 		mi: string
 		/**
-		 * T​w​o​,​ ​w​h​e​n​ ​p​a​i​r​e​d​ ​w​i​t​h​ ​'​t​e​'​ ​(​h​a​n​d​)​.
+		 * T​w​o​,​ ​w​h​e​n​ ​p​a​i​r​e​d​ ​w​i​t​h​ ​"​t​e​"​ ​(​h​a​n​d​)​.
 		 */
 		moro: string
 		/**
@@ -1333,7 +1333,7 @@ export type TranslationFunctions = {
 		mata: () => LocalizedString
 		mi: () => LocalizedString
 		/**
-		 * Two, when paired with 'te' (hand).
+		 * Two, when paired with "te" (hand).
 		 */
 		moro: () => LocalizedString
 		/**

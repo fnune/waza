@@ -178,7 +178,7 @@ const wordComments: Record<WordKey, string> = {
   makura: "",
   mata: "",
   mi: "",
-  moro: "Zwei, oft zusammen mit 'Hand'.",
+  moro: 'Zwei, oft zusammen mit "te" (Hand).',
   morote: "Zwei Hände.",
   mune: "",
   nage: "Wurf.",
