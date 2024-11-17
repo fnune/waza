@@ -3,7 +3,12 @@ import { locales } from "~/locales/i18n-util";
 
 export function LanguageSelect() {
   const { locale, setLocale } = useI18nContext();
-  const sorted: typeof locales = ["en", "de"];
+  const sorted: typeof locales = ["en", "de", "es"];
+  const labels: Record<(typeof locales)[number], string> = {
+    en: "English",
+    de: "Deutsch",
+    es: "Español",
+  };
   return (
     <ul className="flex justify-center gap-2 pb-6 print:hidden">
       {sorted.map((lang) => (
@@ -15,7 +20,7 @@ export function LanguageSelect() {
             setLocale(lang);
           }}
         >
-          {lang === "en" ? "English" : "Deutsch"}
+          {labels[lang]}
         </li>
       ))}
     </ul>
