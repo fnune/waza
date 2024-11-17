@@ -16,16 +16,9 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const VocabularyLazyImport = createFileRoute('/vocabulary')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
-
-const VocabularyLazyRoute = VocabularyLazyImport.update({
-  id: '/vocabulary',
-  path: '/vocabulary',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/vocabulary.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
@@ -44,13 +37,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/vocabulary': {
-      id: '/vocabulary'
-      path: '/vocabulary'
-      fullPath: '/vocabulary'
-      preLoaderRoute: typeof VocabularyLazyImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -58,37 +44,32 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/vocabulary': typeof VocabularyLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/vocabulary': typeof VocabularyLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/vocabulary': typeof VocabularyLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/vocabulary'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/vocabulary'
-  id: '__root__' | '/' | '/vocabulary'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  VocabularyLazyRoute: typeof VocabularyLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  VocabularyLazyRoute: VocabularyLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -101,15 +82,11 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/vocabulary"
+        "/"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
-    },
-    "/vocabulary": {
-      "filePath": "vocabulary.lazy.tsx"
     }
   }
 }
