@@ -10,7 +10,7 @@ export function Waza({ wazaKey }: Props) {
   const waza = wazaRecord[wazaKey];
   return (
     <article className="flex flex-col items-center gap-3">
-      <TermDisplay japanese={waza.japanese} romaji={waza.romaji} />
+      <TermDisplay japanese={waza.japanese} romaji={waza.romaji} anchor={waza.romaji} />
       <footer className="w-full">
         {waza.words.map((word) => (
           <p key={word}>
