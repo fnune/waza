@@ -1,5 +1,7 @@
 import type { PropsWithChildren } from "react";
 import type { WordKey } from "~/data";
+import { useI18nContext } from "~/locales/i18n-react";
+
 import { Waza } from "../Waza";
 import { InlineWord, Word } from "../Word";
 
@@ -7,21 +9,18 @@ function WordGroup({ children }: PropsWithChildren) {
   return <section className="flex gap-8 p-8">{children}</section>;
 }
 
-function NewWord({
-  children,
-  word,
-  alternative,
-}: PropsWithChildren<{ word: WordKey; alternative?: WordKey }>) {
+function NewWord({ word, alternative }: { word: WordKey; alternative?: WordKey }) {
+  const { LL } = useI18nContext();
   return (
     <aside className="flex w-48 flex-col items-center gap-3">
       <Word wordKey={word} />
       <p className="text-center">
         {alternative && (
           <>
-            or <InlineWord wordKey={alternative} />:{" "}
+            {LL.or()} <InlineWord wordKey={alternative} />:{" "}
           </>
         )}
-        {children}
+        {LL.wordComments[word]()}
       </p>
     </aside>
   );
@@ -39,19 +38,17 @@ export function Vocabulary() {
   return (
     <article className="container mx-auto flex flex-col items-center gap-16 rounded-3xl bg-slate-100 py-32 shadow-2xl">
       <WordGroup>
-        <NewWord word="ko">The foot moves inward.</NewWord>
-        <NewWord word="o">The foot moves outward.</NewWord>
+        <NewWord word="ko" />
+        <NewWord word="o" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="uchi">Attack between the legs.</NewWord>
-        <NewWord word="soto">Attack outside the legs.</NewWord>
+        <NewWord word="uchi" />
+        <NewWord word="soto" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="gari">Reap the leg that has most of the weight on it.</NewWord>
-        <NewWord word="harai" alternative="barai">
-          Sweep the leg that has less weight on it.
-        </NewWord>
-        <NewWord word="gake">Hook the leg with weight on it.</NewWord>
+        <NewWord word="gari" />
+        <NewWord word="harai" alternative="barai" />
+        <NewWord word="gake" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="osoto-gari" />
@@ -60,25 +57,25 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="yoko">Side ⟷</NewWord>
-        <NewWord word="kami">Above ↑</NewWord>
-        <NewWord word="ushiro">Behind ↑</NewWord>
-        <NewWord word="tate">Vertical ↥</NewWord>
-        <NewWord word="ma">Front ↓</NewWord>
+        <NewWord word="yoko" />
+        <NewWord word="kami" />
+        <NewWord word="ushiro" />
+        <NewWord word="tate" />
+        <NewWord word="ma" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="ura">One&apos;s own back.</NewWord>
-        <NewWord word="sumi">Corner.</NewWord>
+        <NewWord word="ura" />
+        <NewWord word="sumi" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="shiho">Four directions ⛶</NewWord>
+        <NewWord word="shiho" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="ude">Arm.</NewWord>
+        <NewWord word="ude" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="gatame">Stretched hold.</NewWord>
-        <NewWord word="garami">Twisting or entanglement using torque.</NewWord>
+        <NewWord word="gatame" />
+        <NewWord word="garami" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="yoko-shiho-gatame" />
@@ -90,8 +87,8 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="kesa">Scarf.</NewWord>
-        <NewWord word="kuzure">Variation, or modified.</NewWord>
+        <NewWord word="kesa" />
+        <NewWord word="kuzure" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="kesa-gatame" />
@@ -101,13 +98,11 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="ashi-foot" alternative="ashi-leg">
-          Foot, but sometimes lower leg.
-        </NewWord>
+        <NewWord word="ashi-foot" alternative="ashi-leg" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="de">The foot that is initiating a movement.</NewWord>
-        <NewWord word="okuri">The foot that is sliding to catch up.</NewWord>
+        <NewWord word="de" />
+        <NewWord word="okuri" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="deashi-harai" />
@@ -115,9 +110,7 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="goshi" alternative="koshi">
-          Hip.
-        </NewWord>
+        <NewWord word="goshi" alternative="koshi" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="o-goshi" />
@@ -125,7 +118,7 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="guruma">Wheel.</NewWord>
+        <NewWord word="guruma" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="koshi-guruma" />
@@ -134,8 +127,8 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="seoi">To carry over the shoulder.</NewWord>
-        <NewWord word="nage">Throw.</NewWord>
+        <NewWord word="seoi" />
+        <NewWord word="nage" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="seoi-nage" />
@@ -143,9 +136,9 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="tai">Body.</NewWord>
-        <NewWord word="tani">Valley.</NewWord>
-        <NewWord word="otoshi">Body.</NewWord>
+        <NewWord word="tai" />
+        <NewWord word="tani" />
+        <NewWord word="otoshi" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="tai-otoshi" />
@@ -155,9 +148,7 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="gaeshi" alternative="kaeshi">
-          Reversal, turn-over.
-        </NewWord>
+        <NewWord word="gaeshi" alternative="kaeshi" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="sumi-gaeshi" />
@@ -166,13 +157,13 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="juji">Cross.</NewWord>
-        <NewWord word="jime">Choke.</NewWord>
+        <NewWord word="juji" />
+        <NewWord word="jime" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="gyaku">Reversed.</NewWord>
-        <NewWord word="nami">Normal.</NewWord>
-        <NewWord word="kata-single">Single.</NewWord>
+        <NewWord word="gyaku" />
+        <NewWord word="nami" />
+        <NewWord word="kata-single" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="juji-gatame" />
@@ -182,26 +173,24 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="te">Hand.</NewWord>
+        <NewWord word="te" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="tsuri">To lift or to fish.</NewWord>
-        <NewWord word="hiki">To pull.</NewWord>
-        <NewWord word="osae">To suppress.</NewWord>
-        <NewWord word="komi">Inward.</NewWord>
-        <NewWord word="moro">
-          Two, when paired with <InlineWord wordKey="te" />.
-        </NewWord>
+        <NewWord word="tsuri" />
+        <NewWord word="hiki" />
+        <NewWord word="osae" />
+        <NewWord word="komi" />
+        <NewWord word="moro" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="tsurikomi">Lifting and pulling.</NewWord>
-        <NewWord word="osaekomi">Pinning down.</NewWord>
-        <NewWord word="hikikomi">Pulling inward.</NewWord>
+        <NewWord word="tsurikomi" />
+        <NewWord word="osaekomi" />
+        <NewWord word="hikikomi" />
       </WordGroup>
       <WordGroup>
-        <NewWord word="hikite">The pulling hand, usually grabbing the sleeve.</NewWord>
-        <NewWord word="tsurite">The lifting hand, usually grabbing the lapel.</NewWord>
-        <NewWord word="morote">Two hands.</NewWord>
+        <NewWord word="hikite" />
+        <NewWord word="tsurite" />
+        <NewWord word="morote" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="tsuri-goshi" />
@@ -212,7 +201,7 @@ export function Vocabulary() {
       </UnderstandableWaza>
 
       <WordGroup>
-        <NewWord word="maki">Roll.</NewWord>
+        <NewWord word="maki" />
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="soto-makikomi" />
