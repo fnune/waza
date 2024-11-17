@@ -424,7 +424,7 @@ type RootTranslation = {
 	 */
 	tsurite: string
 	/**
-	 * i​n​s​i​d​e
+	 * i​n​n​e​r
 	 */
 	uchi: string
 	/**
@@ -1150,7 +1150,7 @@ export type TranslationFunctions = {
 	 */
 	tsurite: () => LocalizedString
 	/**
-	 * inside
+	 * inner
 	 */
 	uchi: () => LocalizedString
 	/**

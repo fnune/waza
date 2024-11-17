@@ -103,7 +103,7 @@ const words: Record<WordKey, string> = {
   tsuri: "lifting",
   tsurikomi: "lifting and pulling",
   tsurite: "lifting hand",
-  uchi: "inside",
+  uchi: "inner",
   ude: "arm",
   uki: "floating",
   ura: "back",
