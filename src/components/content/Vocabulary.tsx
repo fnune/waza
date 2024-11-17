@@ -28,7 +28,7 @@ function NewWord({ word, alternative }: { word: WordKey; alternative?: WordKey }
 
 function UnderstandableWaza({ children }: PropsWithChildren) {
   return (
-    <section className="flex flex-col gap-16 rounded-3xl bg-slate-200 p-16 shadow-2xl">
+    <section className="border-border border-border flex flex-col gap-16 rounded-3xl border p-16 shadow-xl">
       {children}
     </section>
   );
@@ -36,7 +36,7 @@ function UnderstandableWaza({ children }: PropsWithChildren) {
 
 export function Vocabulary() {
   return (
-    <article className="container mx-auto flex flex-col items-center gap-16 rounded-3xl bg-slate-100 py-32 shadow-2xl">
+    <article className="border-border container mx-auto flex flex-col items-center gap-16 rounded-3xl border bg-white py-32 shadow-2xl">
       <WordGroup>
         <NewWord word="ko" />
         <NewWord word="o" />

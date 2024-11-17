@@ -208,7 +208,7 @@ const wordComments: Record<WordKey, string> = {
   sutemi: "",
   tachi: "",
   tai: "Body.",
-  tani: "Valley:",
+  tani: "Valley.",
   taoshi: "",
   tate: "Vertical ↥",
   tawara: "",

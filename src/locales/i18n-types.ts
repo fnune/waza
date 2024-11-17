@@ -679,7 +679,7 @@ type RootTranslation = {
 		 */
 		tai: string
 		/**
-		 * V​a​l​l​e​y​:
+		 * V​a​l​l​e​y​.
 		 */
 		tani: string
 		taoshi: string
@@ -1405,7 +1405,7 @@ export type TranslationFunctions = {
 		 */
 		tai: () => LocalizedString
 		/**
-		 * Valley:
+		 * Valley.
 		 */
 		tani: () => LocalizedString
 		taoshi: () => LocalizedString

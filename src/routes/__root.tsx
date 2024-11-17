@@ -26,7 +26,7 @@ function Main() {
 
   return (
     <I18nProvider locale={defaultLocale}>
-      <main className="p-16">
+      <main className="bg-gradient-to-t from-neutral-300 to-stone-400 p-16">
         <LanguageSelect />
         <Outlet />
         <hr className="my-16" />
