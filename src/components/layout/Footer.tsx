@@ -2,7 +2,7 @@ import { useI18nContext } from "~/locales/i18n-react";
 import { InlineWaza } from "../Waza";
 import { InlineWord } from "../Word";
 
-export function Footer() {
+function FooterContent() {
   const { locale } = useI18nContext();
 
   switch (locale) {
@@ -30,6 +30,7 @@ export function Footer() {
               interpretations but to aid in the understanding of the meaning of judo techniques,
               focusing only on a judo context.
             </li>
+            <li>Created by Fausto Núñez Alberro, 2024.</li>
           </ul>
         </footer>
       );
@@ -57,9 +58,18 @@ export function Footer() {
               Interpretationen bereitzustellen, sondern das Verständnis der Bedeutung von
               Judotechniken zu erleichtern, wobei ausschließlich der Judo-Kontext im Fokus steht.
             </li>
+            <li>Erstellt von Fausto Núñez Alberro, 2024.</li>
           </ul>
         </footer>
       );
     }
   }
+}
+
+export function Footer() {
+  return (
+    <footer className="flex flex-col gap-2 print:break-inside-avoid">
+      <FooterContent />
+    </footer>
+  );
 }

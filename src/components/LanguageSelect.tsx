@@ -5,7 +5,7 @@ export function LanguageSelect() {
   const { locale, setLocale } = useI18nContext();
   const sorted: typeof locales = ["en", "de"];
   return (
-    <ul className="flex justify-center gap-2 pb-6">
+    <ul className="flex justify-center gap-2 pb-6 print:hidden">
       {sorted.map((lang) => (
         <li
           key={lang}

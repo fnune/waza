@@ -26,10 +26,10 @@ function Main() {
 
   return (
     <I18nProvider locale={defaultLocale}>
-      <main className="bg-gradient-to-t from-neutral-300 to-stone-400 p-16">
+      <main className="bg-gradient-to-t from-neutral-300 to-stone-400 p-16 print:p-0">
         <LanguageSelect />
         <Outlet />
-        <hr className="my-16" />
+        <div className="my-16" />
         <Footer />
       </main>
     </I18nProvider>
