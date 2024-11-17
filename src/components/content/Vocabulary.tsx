@@ -36,7 +36,7 @@ function Page({ children }: PropsWithChildren) {
 
 function UnderstandableWaza({ children }: PropsWithChildren) {
   return (
-    <section className="border-border flex flex-row flex-wrap justify-center gap-16 rounded-3xl border p-16 shadow-xl print:break-inside-avoid print:gap-8 print:border-2 print:p-12 print:shadow-none">
+    <section className="border-border flex flex-row flex-wrap justify-center gap-16 rounded-3xl border p-16 shadow-xl dark:border-neutral-800 dark:bg-neutral-950 print:break-inside-avoid print:gap-8 print:border-2 print:p-12 print:shadow-none">
       {children}
     </section>
   );
@@ -44,7 +44,7 @@ function UnderstandableWaza({ children }: PropsWithChildren) {
 
 export function Vocabulary() {
   return (
-    <article className="border-border container mx-auto flex flex-col items-center gap-y-16 rounded-3xl border bg-white px-16 pb-20 pt-24 shadow-2xl print:gap-y-8 print:border-none print:p-0 print:shadow-none">
+    <article className="border-border container mx-auto flex flex-col items-center gap-y-16 rounded-3xl border bg-white px-16 pb-20 pt-24 shadow-2xl dark:border-neutral-800 dark:bg-black print:gap-y-8 print:border-none print:p-0 print:shadow-none">
       <Page>
         <WordGroup>
           <NewWord word="ko" />
