@@ -1,9 +1,9 @@
 import { InlineWaza } from "../Waza";
-import { InlineWord, Word } from "../Word";
+import { InlineWord } from "../Word";
 
 export function Footer() {
   return (
-    <p className="flex flex-col gap-2">
+    <footer className="flex flex-col gap-2">
       <b>Notes</b>
       <ul className="flex flex-col gap-2">
         <li>
@@ -20,6 +20,6 @@ export function Footer() {
           <InlineWaza wazaKey="kata-juji-jime" />.
         </li>
       </ul>
-    </p>
+    </footer>
   );
 }
