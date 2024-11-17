@@ -16,7 +16,7 @@ export function Footer() {
         <li>
           <InlineWord wordKey="kata-shoulder" /> and <InlineWord wordKey="kata-single" /> read the
           same way but mean different things. The most-commonly-used meaning is{" "}
-          <Word wordKey="kata-shoulder" />. Examples: <InlineWaza wazaKey="kata-guruma" /> and{" "}
+          <InlineWord wordKey="kata-shoulder" />. Examples: <InlineWaza wazaKey="kata-guruma" /> and{" "}
           <InlineWaza wazaKey="kata-juji-jime" />.
         </li>
       </ul>

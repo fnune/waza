@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from "react";
 import type { WordKey } from "~/data";
-import { InlineWaza, Waza } from "../Waza";
+import { Waza } from "../Waza";
 import { InlineWord, Word } from "../Word";
 
 function WordGroup({ children }: PropsWithChildren) {
-  return <section className="flex items-center gap-8 p-8">{children}</section>;
+  return <section className="flex gap-8 p-8">{children}</section>;
 }
 
 function NewWord({
@@ -13,29 +13,31 @@ function NewWord({
   alternative,
 }: PropsWithChildren<{ word: WordKey; alternative?: WordKey }>) {
   return (
-    <aside className="text-center">
-      <p>
-        <b>
-          <Word wordKey={word} />
-        </b>
+    <aside className="flex w-48 flex-col items-center gap-3">
+      <Word wordKey={word} />
+      <p className="text-center">
         {alternative && (
           <>
-            , or <Word wordKey={alternative} />
+            or <InlineWord wordKey={alternative} />:{" "}
           </>
         )}
+        {children}
       </p>
-      <p>{children}</p>
     </aside>
   );
 }
 
 function UnderstandableWaza({ children }: PropsWithChildren) {
-  return <section className="flex flex-col gap-8 rounded bg-slate-200 p-8">{children}</section>;
+  return (
+    <section className="flex flex-col gap-16 rounded-3xl bg-slate-200 p-16 shadow-2xl">
+      {children}
+    </section>
+  );
 }
 
 export function Vocabulary() {
   return (
-    <article className="flex flex-col items-center gap-16">
+    <article className="container mx-auto flex flex-col items-center gap-16 rounded-3xl bg-slate-100 py-32 shadow-2xl">
       <WordGroup>
         <NewWord word="ko">The foot moves inward.</NewWord>
         <NewWord word="o">The foot moves outward.</NewWord>
@@ -61,10 +63,12 @@ export function Vocabulary() {
         <NewWord word="yoko">Side ⟷</NewWord>
         <NewWord word="kami">Above ↑</NewWord>
         <NewWord word="ushiro">Behind ↑</NewWord>
-        <NewWord word="ma">Front ↓</NewWord>
-        <NewWord word="ura">Back ↑</NewWord>
-        <NewWord word="sumi">Corner ↘</NewWord>
         <NewWord word="tate">Vertical ↥</NewWord>
+        <NewWord word="ma">Front ↓</NewWord>
+      </WordGroup>
+      <WordGroup>
+        <NewWord word="ura">One&apos;s own back.</NewWord>
+        <NewWord word="sumi">Corner.</NewWord>
       </WordGroup>
       <WordGroup>
         <NewWord word="shiho">Four directions ⛶</NewWord>
@@ -102,8 +106,8 @@ export function Vocabulary() {
         </NewWord>
       </WordGroup>
       <WordGroup>
-        <NewWord word="de">The forward foot that is currently advancing.</NewWord>
-        <NewWord word="okuri">The foot that is sliding to catch up with a movement.</NewWord>
+        <NewWord word="de">The foot that is initiating a movement.</NewWord>
+        <NewWord word="okuri">The foot that is sliding to catch up.</NewWord>
       </WordGroup>
       <UnderstandableWaza>
         <Waza wazaKey="deashi-harai" />
@@ -186,15 +190,17 @@ export function Vocabulary() {
         <NewWord word="osae">To suppress.</NewWord>
         <NewWord word="komi">Inward.</NewWord>
         <NewWord word="moro">
-          Two, when paired with <Word wordKey="te" />.
+          Two, when paired with <InlineWord wordKey="te" />.
         </NewWord>
       </WordGroup>
       <WordGroup>
-        <NewWord word="tsurikomi">Pulling and lifting.</NewWord>
-        <NewWord word="hikite">The pulling hand, usually grabbing the sleeve.</NewWord>
-        <NewWord word="tsurite">The lifting hand, usually grabbing the lapel.</NewWord>
+        <NewWord word="tsurikomi">Lifting and pulling.</NewWord>
         <NewWord word="osaekomi">Pinning down.</NewWord>
         <NewWord word="hikikomi">Pulling inward.</NewWord>
+      </WordGroup>
+      <WordGroup>
+        <NewWord word="hikite">The pulling hand, usually grabbing the sleeve.</NewWord>
+        <NewWord word="tsurite">The lifting hand, usually grabbing the lapel.</NewWord>
         <NewWord word="morote">Two hands.</NewWord>
       </WordGroup>
       <UnderstandableWaza>

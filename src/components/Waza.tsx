@@ -1,24 +1,23 @@
 import { type WazaKey, wazaRecord } from "~/data";
 
 import React from "react";
-import { InlineWord, Word } from "./Word";
+import { TermDisplay } from "./TermDisplay";
+import { InlineWord } from "./Word";
 
 type Props = { wazaKey: WazaKey };
 
 export function Waza({ wazaKey }: Props) {
   const waza = wazaRecord[wazaKey];
   return (
-    <article className="flex flex-col items-center">
-      <header>
-        <b>
-          {waza.japanese} ({waza.romaji})
-        </b>
-      </header>
-      {waza.words.map((word) => (
-        <p key={word}>
-          <Word wordKey={word} />
-        </p>
-      ))}
+    <article className="flex flex-col items-center gap-3">
+      <TermDisplay japanese={waza.japanese} romaji={waza.romaji} />
+      <footer className="w-full">
+        {waza.words.map((word) => (
+          <p key={word}>
+            <InlineWord wordKey={word} />
+          </p>
+        ))}
+      </footer>
     </article>
   );
 }

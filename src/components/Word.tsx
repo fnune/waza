@@ -1,14 +1,11 @@
 import { type WordKey, wordsRecord } from "~/data";
+import { TermDisplay } from "./TermDisplay";
 
 type Props = { wordKey: WordKey };
 
 export function Word({ wordKey }: Props) {
   const word = wordsRecord[wordKey];
-  return (
-    <span>
-      {word.japanese} ({word.romaji}, {word.english})
-    </span>
-  );
+  return <TermDisplay japanese={word.japanese} romaji={word.romaji} meaning={word.english} />;
 }
 
 export function InlineWord({ wordKey }: Props) {
