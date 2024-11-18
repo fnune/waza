@@ -26,7 +26,7 @@ function Main() {
 
   return (
     <I18nProvider locale={defaultLocale}>
-      <main className="min-h-dvh bg-black px-4 pb-4 pt-6 sm:bg-gradient-to-t sm:from-neutral-300 sm:to-stone-400 md:p-16 dark:from-neutral-800 dark:to-stone-900 dark:text-neutral-200 print:bg-white print:from-white print:to-white print:p-0">
+      <main className="min-h-dvh bg-white px-4 pb-4 pt-6 sm:bg-gradient-to-t sm:from-neutral-300 sm:to-stone-400 md:p-16 dark:bg-black dark:from-neutral-800 dark:to-stone-900 dark:text-neutral-200 print:bg-white print:from-white print:to-white print:p-0">
         <LanguageSelect />
         <Outlet />
         <div className="my-8 md:my-16" />
