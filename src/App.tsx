@@ -3,7 +3,7 @@ import { StrictMode } from "react";
 
 import { routeTree } from "./routeTree.gen";
 
-const router = createRouter({ routeTree });
+const router = createRouter({ routeTree, basepath: __BASE_PATH__ });
 
 declare module "@tanstack/react-router" {
   interface Register {

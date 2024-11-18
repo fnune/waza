@@ -3,12 +3,18 @@ import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-export default defineConfig(({ mode }) => ({
-  plugins: [TanStackRouterVite(), react()],
-  base: mode === "production" ? "/waza/" : "/",
-  resolve: {
-    alias: {
-      "~": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  const base = mode === "production" ? "/waza/" : "/";
+  return {
+    plugins: [TanStackRouterVite(), react()],
+    base,
+    resolve: {
+      alias: {
+        "~": path.resolve(__dirname, "./src"),
+      },
     },
-  },
-}));
+    define: {
+      __BASE_PATH__: JSON.stringify(base),
+    },
+  };
+});

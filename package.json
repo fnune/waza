@@ -12,7 +12,7 @@
     "locales": "typesafe-i18n",
     "print": "npx tsx src/print.ts",
     "predeploy": "yarn build",
-    "deploy": "gh-pages --dist dist --src ./**/*.{html,css,js,svg}"
+    "deploy": "gh-pages --dist dist"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.81.2",
