@@ -8,10 +8,12 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "locales": "typesafe-i18n"
+    "locales": "typesafe-i18n",
+    "print": "npx tsx src/print.ts"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.81.2",
+    "html2canvas": "^1.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typesafe-i18n": "^5.26.2"

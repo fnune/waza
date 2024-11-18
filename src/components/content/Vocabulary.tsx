@@ -33,7 +33,7 @@ function NewWord({ word, alternative }: { word: WordKey; alternative?: WordKey }
 
 function Page({ children }: PropsWithChildren) {
   return (
-    <div className="flex max-w-full flex-col items-center gap-y-16 sm:gap-x-8 md:gap-x-16 print:h-[95dvh] print:break-after-page print:justify-center print:gap-8">
+    <div className="print:h-100dvh print:w-100dvw flex max-w-full flex-col items-center gap-y-16 sm:gap-x-8 md:gap-x-16 print:break-before-page print:break-inside-avoid print:justify-center print:gap-8 print:overflow-hidden">
       {children}
     </div>
   );
@@ -41,7 +41,7 @@ function Page({ children }: PropsWithChildren) {
 
 function UnderstandableWaza({ children }: PropsWithChildren) {
   return (
-    <section className="border-border flex flex-row flex-wrap justify-around gap-16 rounded-3xl border p-12 shadow-xl md:justify-center md:p-16 dark:border-neutral-800 dark:bg-neutral-950 print:break-inside-avoid print:gap-8 print:border-2 print:p-12 print:shadow-none">
+    <section className="border-border flex flex-row flex-wrap justify-around gap-16 rounded-3xl border p-12 shadow-xl md:justify-center md:p-16 dark:border-neutral-800 dark:bg-neutral-950 print:break-inside-avoid print:gap-8 print:border-2 print:bg-none print:p-12 print:shadow-none">
       {children}
     </section>
   );
