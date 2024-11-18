@@ -416,7 +416,7 @@ type RootTranslation = {
 	 */
 	tsuri: string
 	/**
-	 * l​i​f​t​i​n​g​ ​a​n​d​ ​p​u​l​l​i​n​g
+	 * l​i​f​t​i​n​g​ ​&​ ​p​u​l​l​i​n​g
 	 */
 	tsurikomi: string
 	/**
@@ -1142,7 +1142,7 @@ export type TranslationFunctions = {
 	 */
 	tsuri: () => LocalizedString
 	/**
-	 * lifting and pulling
+	 * lifting & pulling
 	 */
 	tsurikomi: () => LocalizedString
 	/**

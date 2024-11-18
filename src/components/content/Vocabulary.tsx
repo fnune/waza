@@ -2,11 +2,16 @@ import type { PropsWithChildren } from "react";
 import type { WordKey } from "~/data";
 import { useI18nContext } from "~/locales/i18n-react";
 
+import { Container } from "../Container";
 import { Waza } from "../Waza";
 import { InlineWord, Word } from "../Word";
 
 function WordGroup({ children }: PropsWithChildren) {
-  return <section className="flex gap-8 p-8">{children}</section>;
+  return (
+    <section className="flex flex-wrap justify-center gap-x-2 gap-y-16 md:gap-x-8">
+      {children}
+    </section>
+  );
 }
 
 function NewWord({ word, alternative }: { word: WordKey; alternative?: WordKey }) {
@@ -28,7 +33,7 @@ function NewWord({ word, alternative }: { word: WordKey; alternative?: WordKey }
 
 function Page({ children }: PropsWithChildren) {
   return (
-    <div className="flex flex-col items-center gap-16 print:h-[95dvh] print:break-inside-avoid print:justify-center print:gap-8">
+    <div className="flex max-w-full flex-col items-center gap-y-16 sm:gap-x-8 md:gap-x-16 print:h-[95dvh] print:break-after-page print:justify-center print:gap-8">
       {children}
     </div>
   );
@@ -36,7 +41,7 @@ function Page({ children }: PropsWithChildren) {
 
 function UnderstandableWaza({ children }: PropsWithChildren) {
   return (
-    <section className="border-border flex flex-row flex-wrap justify-center gap-16 rounded-3xl border p-16 shadow-xl dark:border-neutral-800 dark:bg-neutral-950 print:break-inside-avoid print:gap-8 print:border-2 print:p-12 print:shadow-none">
+    <section className="border-border flex flex-row flex-wrap justify-around gap-16 rounded-3xl border p-12 shadow-xl md:justify-center md:p-16 dark:border-neutral-800 dark:bg-neutral-950 print:break-inside-avoid print:gap-8 print:border-2 print:p-12 print:shadow-none">
       {children}
     </section>
   );
@@ -44,7 +49,7 @@ function UnderstandableWaza({ children }: PropsWithChildren) {
 
 export function Vocabulary() {
   return (
-    <article className="border-border container mx-auto flex flex-col items-center gap-y-16 rounded-3xl border bg-white px-16 pb-20 pt-24 shadow-2xl dark:border-neutral-800 dark:bg-black print:gap-y-8 print:border-none print:p-0 print:shadow-none">
+    <Container>
       <Page>
         <WordGroup>
           <NewWord word="ko" />
@@ -238,6 +243,6 @@ export function Vocabulary() {
           <Waza wazaKey="uchi-makikomi" />
         </UnderstandableWaza>
       </Page>
-    </article>
+    </Container>
   );
 }

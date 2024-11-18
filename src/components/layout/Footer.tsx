@@ -84,6 +84,8 @@ const translations: Record<string, React.ReactNode> = {
 export function Footer() {
   const { locale } = useI18nContext();
   return (
-    <footer className="flex flex-col gap-2 print:break-inside-avoid">{translations[locale]}</footer>
+    <footer className="flex flex-col gap-2 px-4 pb-16 md:px-0 print:break-inside-avoid">
+      {translations[locale]}
+    </footer>
   );
 }

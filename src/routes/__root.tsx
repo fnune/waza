@@ -26,10 +26,10 @@ function Main() {
 
   return (
     <I18nProvider locale={defaultLocale}>
-      <main className="min-h-dvh bg-gradient-to-t from-neutral-300 to-stone-400 p-16 dark:from-neutral-800 dark:to-stone-900 dark:text-neutral-200 print:p-0">
+      <main className="min-h-dvh bg-black from-neutral-300 to-stone-400 px-4 pb-4 pt-6 sm:bg-gradient-to-t md:p-16 dark:from-neutral-800 dark:to-stone-900 dark:text-neutral-200 print:p-0">
         <LanguageSelect />
         <Outlet />
-        <div className="my-16" />
+        <div className="my-8 md:my-16" />
         <Footer />
       </main>
     </I18nProvider>
