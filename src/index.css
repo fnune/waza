@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body * {
+  @apply transition-colors duration-300;
+}
+
 @page {
   size: A4;
   margin-top: 2cm;

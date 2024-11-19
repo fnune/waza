@@ -111,7 +111,7 @@ const translations: Record<string, React.ReactNode> = {
 export function Footer() {
   const { locale } = useI18nContext();
   return (
-    <footer className="flex flex-col gap-2 px-4 pb-16 md:px-0 print:bg-white print:p-16">
+    <footer className="flex flex-col gap-2 px-4 pb-16 md:container md:mx-auto md:px-0 print:bg-white print:p-16">
       {translations[locale]}
     </footer>
   );
