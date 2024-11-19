@@ -22,7 +22,7 @@ export function LanguageSelect() {
   );
 
   return (
-    <ul className="flex items-center justify-center gap-2 print:hidden">
+    <ul className="flex items-center justify-center gap-2">
       <Languages size={20} /> Language:{" "}
       {sorted.map((lang) => (
         <button

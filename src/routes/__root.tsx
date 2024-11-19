@@ -30,7 +30,7 @@ function Main() {
   return (
     <I18nProvider locale={defaultLocale}>
       <main className="bg-white px-4 pb-4 pt-6 text-neutral-900 sm:bg-gradient-to-t sm:from-neutral-300 sm:to-stone-400 md:p-16 dark:bg-black dark:from-neutral-800 dark:to-stone-900 dark:text-neutral-200 print:bg-white print:from-white print:to-white print:p-0">
-        <nav className="flex flex-wrap justify-center gap-3 pb-4 md:container md:mx-auto md:gap-8">
+        <nav className="flex flex-wrap justify-center gap-3 pb-4 md:container md:mx-auto md:gap-8 print:hidden">
           <LanguageSelect />
           <ThemeSelect />
         </nav>

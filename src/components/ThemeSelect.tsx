@@ -25,7 +25,7 @@ export function ThemeSelect() {
   }, [theme]);
 
   return (
-    <ul className="flex items-center justify-center gap-2 print:hidden">
+    <ul className="flex items-center justify-center gap-2">
       <SunMoon size={20} /> Theme:{" "}
       {(
         [
