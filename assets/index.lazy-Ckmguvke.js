@@ -1,4 +1,4 @@
-import{j as s,W as e,u as n,a as t,I as h,c as w}from"./index-wppeZdy0.js";function l({children:o}){return s.jsx("article",{className:`
+import{j as s,W as e,u as n,a as t,I as h,c as w}from"./index-C2RO_jWU.js";function l({children:o}){return s.jsx("article",{className:`
         sm:border-border flex flex-col items-center
         gap-y-16 rounded-3xl bg-white px-4 pb-4 pt-16 md:container sm:border
         sm:shadow-2xl md:mx-auto md:px-16 md:pb-20 md:pt-24
