@@ -1,6 +1,20 @@
+import { PropsWithChildren } from "react";
 import { useI18nContext } from "~/locales/i18n-react";
 import { InlineWaza } from "../Waza";
 import { InlineWord } from "../Word";
+
+function RepoLink({ children, path }: PropsWithChildren<{ path?: string }>) {
+  return (
+    <a
+      href={`https://github.com/fnune/waza${path ?? ""}`}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="underline"
+    >
+      {children}
+    </a>
+  );
+}
 
 const translations: Record<string, React.ReactNode> = {
   en: (
@@ -24,7 +38,11 @@ const translations: Record<string, React.ReactNode> = {
           The purpose of this content is not to provide precise translations or interpretations of
           the Japanese language but to aid in the understanding of the meaning of judo techniques.
         </li>
-        <li>Created by Fausto Núñez Alberro, 2024.</li>
+        <li>
+          Created by Fausto Núñez Alberro, 2024. License:{" "}
+          <RepoLink path="?tab=MIT-1-ov-file#readme">MIT</RepoLink>. See the{" "}
+          <RepoLink>code on GitHub.</RepoLink>
+        </li>
       </ul>
     </footer>
   ),
@@ -50,7 +68,12 @@ const translations: Record<string, React.ReactNode> = {
           japanischen Sprache bereitzustellen, sondern das Verständnis der Bedeutung von
           Judotechniken zu erleichtern.
         </li>
-        <li>Erstellt von Fausto Núñez Alberro, 2024.</li>
+        <li>
+          {" "}
+          Erstellt von Fausto Núñez Alberro, 2024. Lizenz:{" "}
+          <RepoLink path="?tab=MIT-1-ov-file#readme">MIT</RepoLink>. Sieh dir den{" "}
+          <RepoLink>Code auf GitHub an.</RepoLink>{" "}
+        </li>
       </ul>
     </footer>
   ),
@@ -75,7 +98,11 @@ const translations: Record<string, React.ReactNode> = {
           El propósito de este contenido no es proporcionar traducciones o interpretaciones precisas
           del japonés, sino ayudar a comprender el significado de las técnicas de judo.
         </li>
-        <li>Creado por Fausto Núñez Alberro, 2024.</li>
+        <li>
+          Creado por Fausto Núñez Alberro, 2024. Licencia:{" "}
+          <RepoLink path="?tab=MIT-1-ov-file#readme">MIT</RepoLink>. Consulta el{" "}
+          <RepoLink>código en GitHub.</RepoLink>{" "}
+        </li>
       </ul>
     </footer>
   ),
