@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "locales": "typesafe-i18n",
     "print": "npx tsx src/print.ts",
-    "predeploy": "yarn build && .husky/pre-commit",
+    "predeploy": ".husky/pre-commit",
     "deploy": "gh-pages --dist dist",
     "prepare": "husky"
   },
