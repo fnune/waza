@@ -14,13 +14,13 @@ body * {
 @page {
   size: A4;
   margin-top: 2cm;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
+  margin-bottom: 1cm;
+  margin-left: 1cm;
+  margin-right: 1cm;
 }
 
 @media print {
   body {
-    zoom: 0.65;
+    zoom: 0.8;
   }
 }

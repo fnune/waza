@@ -3,13 +3,19 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { type ViteDevServer, createServer } from "vite";
 
+import type { Locales } from "./locales/i18n-types";
+import { locales } from "./locales/i18n-util";
+
 function getChromiumPath(): string | null {
   try {
     const command =
       process.platform === "win32"
         ? "where chrome"
         : "which chromium || which google-chrome || which google-chrome-stable";
-    const result = execSync(command, { encoding: "utf8" }).trim();
+    const result = execSync(command, {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
     return result.split("\n")[0];
   } catch {
     console.error("Chromium not found. Ensure it is installed and in your PATH.");
@@ -17,9 +23,9 @@ function getChromiumPath(): string | null {
   }
 }
 
-async function print() {
+async function print(language: Locales) {
   let server: ViteDevServer | null = null;
-  const outputPath = "waza-en.pdf";
+  const output = `./public/waza-${language}.pdf`;
   const port = 5172;
 
   const chromiumPath = getChromiumPath();
@@ -31,7 +37,7 @@ async function print() {
   try {
     server = await createServer();
     await server.listen(port);
-    const url = `http://localhost:${port.toString()}/`;
+    const url = `http://localhost:${port.toString()}?language=${language}`;
     console.log(`Vite dev server running at ${url}`);
 
     const chromeProcess = spawn(chromiumPath, [
@@ -39,7 +45,7 @@ async function print() {
       "--disable-gpu",
       "--no-sandbox",
       "--virtual-time-budget=5000",
-      `--print-to-pdf=${path.resolve(outputPath)}`,
+      `--print-to-pdf=${path.resolve(output)}`,
       "--no-pdf-header-footer",
       "--disable-pdf-tagging",
       url,
@@ -55,7 +61,7 @@ async function print() {
 
     chromeProcess.on("close", (code: unknown) => {
       if (code === 0) {
-        console.log(`PDF saved to ${outputPath}`);
+        console.log(`PDF saved to ${output}`);
       } else {
         console.log(`Chromium exited with code ${code as string}`);
       }
@@ -72,4 +78,6 @@ async function print() {
   }
 }
 
-void print();
+for (const locale of locales) {
+  void print(locale);
+}

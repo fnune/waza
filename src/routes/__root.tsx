@@ -1,7 +1,8 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRoute, useSearch } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { navigatorDetector } from "typesafe-i18n/detectors";
 
+import { DownloadLink } from "~/components/DownloadLink";
 import { LanguageSelect } from "~/components/LanguageSelect";
 import { ThemeSelect } from "~/components/ThemeSelect";
 import { Footer } from "~/components/layout/Footer";
@@ -11,8 +12,11 @@ import { detectLocale, locales } from "~/locales/i18n-util";
 import { loadLocaleAsync } from "~/locales/i18n-util.async";
 
 function Main() {
-  const defaultLocale =
-    (localStorage.getItem("language") as Locales | undefined) || detectLocale(navigatorDetector);
+  const search = useSearch({ strict: false });
+  const languageParam = (search as { language?: Locales }).language;
+  const languagePreference = localStorage.getItem("language") as Locales | undefined;
+  const languageDefault = detectLocale(navigatorDetector);
+  const defaultLocale = languageParam ?? languagePreference ?? languageDefault;
 
   const [localesLoaded, setLocalesLoaded] = useState(false);
   useEffect(() => {
@@ -33,6 +37,7 @@ function Main() {
         <nav className="flex flex-wrap justify-center gap-3 pb-4 md:container md:mx-auto md:gap-8 print:hidden">
           <LanguageSelect />
           <ThemeSelect />
+          <DownloadLink />
         </nav>
         <div className="min-h-dvh">
           <Outlet />

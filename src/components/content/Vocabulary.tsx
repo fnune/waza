@@ -41,7 +41,7 @@ function Page({ children }: PropsWithChildren) {
 
 function UnderstandableWaza({ children }: PropsWithChildren) {
   return (
-    <section className="border-border flex flex-row flex-wrap justify-around gap-16 rounded-3xl border bg-white p-12 shadow-xl md:justify-center md:p-16 dark:border-neutral-800 dark:bg-neutral-900 print:break-inside-avoid print:gap-8 print:border-2 print:bg-none print:p-12 print:shadow-none">
+    <section className="border-border flex flex-row flex-wrap justify-around gap-16 rounded-3xl border bg-white p-12 shadow-xl md:justify-center md:p-16 dark:border-neutral-800 dark:bg-neutral-900 print:break-inside-avoid print:gap-8 print:border-4 print:bg-none print:p-12 print:shadow-none">
       {children}
     </section>
   );
