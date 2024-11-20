@@ -11,6 +11,7 @@
         buildInputs = with pkgs; [
           biome
           nodejs
+          ocamlPackages.cpdf
           yarn
         ];
       };
