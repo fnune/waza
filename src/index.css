@@ -20,4 +20,9 @@ body * {
   body {
     zoom: 0.7;
   }
+
+  a::after {
+    content: " (" attr(href) ")";
+    white-space: nowrap;
+  }
 }

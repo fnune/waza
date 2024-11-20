@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { useI18nContext } from "~/locales/i18n-react";
 import { InlineWaza } from "../Waza";
 import { InlineWord } from "../Word";
@@ -41,7 +41,7 @@ const translations: Record<string, React.ReactNode> = {
         <li>
           Created by Fausto Núñez Alberro, 2024. License:{" "}
           <RepoLink path="?tab=MIT-1-ov-file#readme">MIT</RepoLink>. See the{" "}
-          <RepoLink>code on GitHub.</RepoLink>
+          <RepoLink>code on GitHub</RepoLink>.
         </li>
       </ul>
     </footer>
@@ -72,7 +72,7 @@ const translations: Record<string, React.ReactNode> = {
           {" "}
           Erstellt von Fausto Núñez Alberro, 2024. Lizenz:{" "}
           <RepoLink path="?tab=MIT-1-ov-file#readme">MIT</RepoLink>. Sieh dir den{" "}
-          <RepoLink>Code auf GitHub an.</RepoLink>{" "}
+          <RepoLink>Code auf GitHub an</RepoLink>.
         </li>
       </ul>
     </footer>
@@ -101,7 +101,7 @@ const translations: Record<string, React.ReactNode> = {
         <li>
           Creado por Fausto Núñez Alberro, 2024. Licencia:{" "}
           <RepoLink path="?tab=MIT-1-ov-file#readme">MIT</RepoLink>. Consulta el{" "}
-          <RepoLink>código en GitHub.</RepoLink>{" "}
+          <RepoLink>código en GitHub</RepoLink>.
         </li>
       </ul>
     </footer>
