@@ -1,3 +1,4 @@
 yarn print
+yarn locales --no-watch
 biome check --fix
 git diff --exit-code
