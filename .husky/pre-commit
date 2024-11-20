@@ -1,3 +1,4 @@
+yarn build
 yarn print
 yarn locales --no-watch
 biome check --fix
