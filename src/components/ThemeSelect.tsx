@@ -1,6 +1,13 @@
 import { SunMoon } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
+function toggleDocumentClass(theme: string | null) {
+  document.documentElement.classList.toggle(
+    "dark",
+    theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches),
+  );
+}
+
 export function ThemeSelect() {
   const [theme, setTheme] = useState<string | null>(localStorage.getItem("theme"));
 
@@ -17,11 +24,21 @@ export function ThemeSelect() {
     } else {
       localStorage.removeItem("theme");
     }
+    toggleDocumentClass(theme);
+  }, [theme]);
 
-    document.documentElement.classList.toggle(
-      "dark",
-      theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches),
-    );
+  useEffect(() => {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChangeSystemPreference = ({ matches }: MediaQueryListEvent) => {
+      if (!theme) {
+        toggleDocumentClass(matches ? "dark" : "light");
+      }
+    };
+
+    prefersDark.addEventListener("change", onChangeSystemPreference);
+    return () => {
+      prefersDark.removeEventListener("change", onChangeSystemPreference);
+    };
   }, [theme]);
 
   return (
