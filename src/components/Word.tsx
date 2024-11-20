@@ -1,6 +1,6 @@
 import { type WordKey, wordsRecord } from "~/data";
-import { TermDisplay } from "./TermDisplay";
 import { useI18nContext } from "~/locales/i18n-react";
+import { TermDisplay } from "./TermDisplay";
 
 type Props = { wordKey: WordKey };
 

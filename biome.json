@@ -1,6 +1,6 @@
 {
   "files": {
-    "ignore": ["src/routeTree.gen.ts", "src/locales/i18n-*.ts"]
+    "ignore": ["src/routeTree.gen.ts", "src/locales/i18n-*", "node_modules", "dist"]
   },
   "formatter": {
     "enabled": true,

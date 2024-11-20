@@ -1,0 +1,3 @@
+yarn print
+biome check --fix
+git diff --exit-code

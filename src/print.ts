@@ -1,5 +1,6 @@
 import { execSync, spawn } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, unlinkSync } from "node:fs";
+import { promises as fs } from "node:fs";
 import path from "node:path";
 import { type ViteDevServer, createServer } from "vite";
 
@@ -23,10 +24,22 @@ function getChromiumPath(): string | null {
   }
 }
 
-import { unlinkSync } from "node:fs";
+async function waitForFile(filePath: string) {
+  for (let retries = 5; retries > 0; retries--) {
+    try {
+      await fs.stat(filePath);
+      return;
+    } catch {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+    }
+  }
+  throw new Error(`File not ready: ${filePath}`);
+}
 
 async function normalizePDF(output: string) {
-  const tempFile = (index: number) => `${output}.tmp.${index.toString()}`;
+  const tempDir = path.join(path.dirname(output), `.temp-${path.basename(output, ".pdf")}`);
+  await fs.mkdir(tempDir, { recursive: true });
+  const tempFile = (index: number) => path.join(tempDir, `temp-${index.toString()}.pdf`);
 
   const modifications = [
     ["-set-creator", ""],
@@ -39,45 +52,32 @@ async function normalizePDF(output: string) {
   ];
 
   await modifications.reduce(async (prevPromise, args, index) => {
-    const inputFile = index === 0 ? output : tempFile(index - 1);
-    const outputFile = tempFile(index);
-
     await prevPromise;
 
-    return new Promise<void>((resolve, reject) => {
-      const cpdfProcess = spawn("cpdf", [...args, inputFile, "-o", outputFile]);
+    const cpdfInput = index === 0 ? output : tempFile(index - 1);
+    const cpdfOutput = tempFile(index);
 
-      cpdfProcess.stderr.on("data", (data: unknown) => {
-        console.error(`cpdf error: ${data as string}`);
+    await waitForFile(cpdfInput);
+
+    return new Promise<void>((resolve, reject) => {
+      const cpdfArgs = [...args, cpdfInput, "-o", cpdfOutput, "-gs-malformed"];
+      console.log(`Running: cpdf ${cpdfArgs.join(" ")}`);
+
+      const cpdfProcess = spawn("cpdf", cpdfArgs);
+
+      cpdfProcess.stderr.on("data", (data) => {
+        console.error("cpdf error: ", data);
       });
 
-      cpdfProcess.on("close", (code: number) => {
-        if (code === 0) {
-          resolve();
-        } else {
-          reject(new Error(`cpdf exited with code ${code.toString()}`));
-        }
+      cpdfProcess.on("close", (code) => {
+        if (code === 0) resolve();
+        else reject(new Error(`cpdf exited with code ${code?.toString() ?? "<null>"}`));
       });
     });
   }, Promise.resolve());
 
-  const finalTempFile = tempFile(modifications.length - 1);
-  const mvProcess = spawn("mv", [finalTempFile, output]);
-
-  await new Promise<void>((resolve, reject) => {
-    mvProcess.on("close", (code: number) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`mv exited with code ${code.toString()}`));
-      }
-    });
-  });
-
-  for (let i = 0; i < modifications.length - 1; i++) {
-    unlinkSync(tempFile(i));
-  }
-
+  await fs.rename(tempFile(modifications.length - 1), output);
+  await fs.rm(tempDir, { recursive: true, force: true });
   console.log(`PDF metadata normalized for ${output}`);
 }
 
@@ -129,6 +129,7 @@ async function print(language: Locales) {
     });
   } catch (error) {
     console.error("Error generating PDF:", error);
+    process.exit(1);
   } finally {
     if (server) {
       await server.close();
@@ -140,9 +141,8 @@ async function print(language: Locales) {
     await normalizePDF(output);
   } catch (error) {
     console.error("Error normalizing PDF:", error);
+    process.exit(1);
   }
 }
 
-for (const locale of locales) {
-  void print(locale);
-}
+await Promise.all(locales.map((locale) => print(locale)));
