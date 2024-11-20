@@ -6,6 +6,11 @@ body * {
   @apply transition-colors duration-300;
 }
 
+.lucide {
+  height: 1em;
+  width: 1em;
+}
+
 @page {
   size: A4;
   margin-top: 2cm;

@@ -43,7 +43,7 @@ export function ThemeSelect() {
 
   return (
     <ul className="flex items-center justify-center gap-2">
-      <SunMoon size={20} />
+      <SunMoon />
       {(
         [
           ["System", null],
