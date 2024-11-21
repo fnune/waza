@@ -243,6 +243,17 @@ export function Vocabulary() {
           <Waza wazaKey="uchi-makikomi" />
         </UnderstandableWaza>
       </Page>
+
+      <Page>
+        <WordGroup>
+          <NewWord word="mata" />
+        </WordGroup>
+        <UnderstandableWaza>
+          <Waza wazaKey="uchi-mata" />
+          <Waza wazaKey="uchi-mata-gaeshi" />
+          <Waza wazaKey="uchi-mata-makikomi" />
+        </UnderstandableWaza>
+      </Page>
     </Container>
   );
 }
