@@ -13,3 +13,11 @@ pre-commit install
 yarn
 yarn dev
 ```
+
+## Deploying
+
+This website uses GitHub Pages.
+
+```
+yarn deploy
+```
