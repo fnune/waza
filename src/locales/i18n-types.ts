@@ -20,6 +20,10 @@ type RootTranslation = {
 	 */
 	or: string
 	/**
+	 * D​o​w​n​l​o​a​d​ ​P​D​F
+	 */
+	downloadPdf: string
+	/**
 	 * s​t​o​r​m
 	 */
 	arashi: string
@@ -745,6 +749,10 @@ export type TranslationFunctions = {
 	 * or
 	 */
 	or: () => LocalizedString
+	/**
+	 * Download PDF
+	 */
+	downloadPdf: () => LocalizedString
 	/**
 	 * storm
 	 */

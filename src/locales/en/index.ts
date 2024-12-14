@@ -237,6 +237,7 @@ const wordComments: Record<WordKey, string> = {
 
 const en = {
   or: "or",
+  downloadPdf: "Download PDF",
   ...words,
   wordComments,
 } satisfies BaseTranslation;
