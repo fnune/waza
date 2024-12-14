@@ -222,7 +222,7 @@ const wordComments: Record<WordKey, string> = {
   tsurite: "La mano elevadora, usualmente agarrando el cuello.",
   uchi: "Ataque entre las piernas.",
   ude: "Brazo.",
-  uki: "",
+  uki: "Posición flotante o inestable.",
   ura: "Propia espalda.",
   ushiro: "Atrás ↑",
   utsuri: "",

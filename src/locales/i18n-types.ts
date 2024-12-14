@@ -721,6 +721,9 @@ type RootTranslation = {
 		 * A​r​m​.
 		 */
 		ude: string
+		/**
+		 * F​l​o​a​t​i​n​g​ ​o​r​ ​u​n​s​t​a​b​l​e​ ​p​o​s​i​t​i​o​n​.
+		 */
 		uki: string
 		/**
 		 * O​n​e​'​s​ ​o​w​n​ ​b​a​c​k​.
@@ -1451,6 +1454,9 @@ export type TranslationFunctions = {
 		 * Arm.
 		 */
 		ude: () => LocalizedString
+		/**
+		 * Floating or unstable position.
+		 */
 		uki: () => LocalizedString
 		/**
 		 * One's own back.
