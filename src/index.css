@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body * {
-  @apply transition-colors duration-300;
+:root {
+  --dark-mode-transition-duration: 150ms;
+}
+
+[class*="dark:bg-"],
+[class*="dark:border-"] {
+  transition-property: background-color, border-color;
+  transition-duration: var(--dark-mode-transition-duration);
+}
+
+[class*="dark:text-"] {
+  transition-property: color;
+  transition-duration: var(--dark-mode-transition-duration);
 }
 
 .lucide {
