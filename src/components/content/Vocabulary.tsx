@@ -233,6 +233,16 @@ export function Vocabulary() {
 
       <Page>
         <WordGroup>
+          <NewWord word="kata-shoulder" />
+        </WordGroup>
+        <UnderstandableWaza>
+          <Waza wazaKey="kata-guruma" />
+          <Waza wazaKey="kata-gatame" />
+        </UnderstandableWaza>
+      </Page>
+
+      <Page>
+        <WordGroup>
           <NewWord word="maki" />
         </WordGroup>
         <UnderstandableWaza>
@@ -264,6 +274,16 @@ export function Vocabulary() {
           <Waza wazaKey="uki-gatame" />
           <Waza wazaKey="uki-waza" />
           <Waza wazaKey="uki-otoshi" />
+        </UnderstandableWaza>
+      </Page>
+
+      <Page>
+        <WordGroup>
+          <NewWord word="hiza" />
+        </WordGroup>
+        <UnderstandableWaza>
+          <Waza wazaKey="hiza-guruma" />
+          <Waza wazaKey="hiza-gatame" />
         </UnderstandableWaza>
       </Page>
     </Container>

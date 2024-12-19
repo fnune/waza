@@ -571,9 +571,12 @@ type RootTranslation = {
 		kani: string
 		kansetsu: string
 		/**
-		 * S​i​n​g​l​e​.
+		 * P​r​o​n​o​u​n​c​e​d​ ​t​h​e​ ​s​a​m​e​ ​a​s​ ​"​k​a​t​a​"​ ​(​s​h​o​u​l​d​e​r​)​.
 		 */
 		'kata-single': string
+		/**
+		 * P​r​o​n​o​u​n​c​e​d​ ​t​h​e​ ​s​a​m​e​ ​a​s​ ​"​k​a​t​a​"​ ​(​s​i​n​g​l​e​)​.
+		 */
 		'kata-shoulder': string
 		katame: string
 		kawazu: string
@@ -1304,9 +1307,12 @@ export type TranslationFunctions = {
 		kani: () => LocalizedString
 		kansetsu: () => LocalizedString
 		/**
-		 * Single.
+		 * Pronounced the same as "kata" (shoulder).
 		 */
 		'kata-single': () => LocalizedString
+		/**
+		 * Pronounced the same as "kata" (single).
+		 */
 		'kata-shoulder': () => LocalizedString
 		katame: () => LocalizedString
 		kawazu: () => LocalizedString
