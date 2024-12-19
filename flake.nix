@@ -12,7 +12,6 @@
           biome
           nodejs
           ocamlPackages.cpdf
-          pre-commit
           yarn
         ];
       };
