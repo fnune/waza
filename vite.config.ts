@@ -3,8 +3,8 @@ import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-export default defineConfig(({ mode }) => {
-  const base = mode === "production" ? "/waza/" : "/";
+export default defineConfig(() => {
+  const base = "/";
   return {
     plugins: [TanStackRouterVite(), react()],
     base,
