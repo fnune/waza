@@ -47,7 +47,7 @@ export function WazaVideo({ wazaKey, ...props }: HTMLBaseProps & Props) {
         <iframe
           src={embedLink(waza.youtubeId)}
           title={`Kodokan YouTube video for '${waza.romaji}'`}
-          frameBorder="0"
+          className="border-0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen

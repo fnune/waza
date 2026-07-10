@@ -244,7 +244,7 @@ type RootTranslation = {
 	 */
 	ma: string
 	/**
-	 * w​r​a​p
+	 * r​o​l​l
 	 */
 	maki: string
 	/**
@@ -296,11 +296,11 @@ type RootTranslation = {
 	 */
 	obi: string
 	/**
-	 * s​l​i​d​i​n​g
+	 * f​o​l​l​o​w​i​n​g
 	 */
 	okuri: string
 	/**
-	 * s​l​i​d​i​n​g​ ​f​o​o​t
+	 * f​o​l​l​o​w​i​n​g​ ​f​o​o​t
 	 */
 	okuriashi: string
 	/**
@@ -332,7 +332,7 @@ type RootTranslation = {
 	 */
 	sasae: string
 	/**
-	 * c​a​r​r​y​-​o​n​-​t​h​e​-​b​a​c​k
+	 * c​a​r​r​y​ ​o​v​e​r​ ​t​h​e​ ​s​h​o​u​l​d​e​r
 	 */
 	seoi: string
 	/**
@@ -639,7 +639,7 @@ type RootTranslation = {
 		o: string
 		obi: string
 		/**
-		 * T​h​e​ ​f​o​o​t​ ​t​h​a​t​ ​i​s​ ​s​l​i​d​i​n​g​ ​t​o​ ​c​a​t​c​h​ ​u​p​.
+		 * T​h​e​ ​f​o​o​t​ ​t​h​a​t​ ​f​o​l​l​o​w​s​,​ ​s​l​i​d​i​n​g​ ​t​o​ ​c​a​t​c​h​ ​u​p​.
 		 */
 		okuri: string
 		okuriashi: string
@@ -980,7 +980,7 @@ export type TranslationFunctions = {
 	 */
 	ma: () => LocalizedString
 	/**
-	 * wrap
+	 * roll
 	 */
 	maki: () => LocalizedString
 	/**
@@ -1032,11 +1032,11 @@ export type TranslationFunctions = {
 	 */
 	obi: () => LocalizedString
 	/**
-	 * sliding
+	 * following
 	 */
 	okuri: () => LocalizedString
 	/**
-	 * sliding foot
+	 * following foot
 	 */
 	okuriashi: () => LocalizedString
 	/**
@@ -1068,7 +1068,7 @@ export type TranslationFunctions = {
 	 */
 	sasae: () => LocalizedString
 	/**
-	 * carry-on-the-back
+	 * carry over the shoulder
 	 */
 	seoi: () => LocalizedString
 	/**
@@ -1375,7 +1375,7 @@ export type TranslationFunctions = {
 		o: () => LocalizedString
 		obi: () => LocalizedString
 		/**
-		 * The foot that is sliding to catch up.
+		 * The foot that follows, sliding to catch up.
 		 */
 		okuri: () => LocalizedString
 		okuriashi: () => LocalizedString
