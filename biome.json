@@ -1,10 +1,24 @@
 {
   "files": {
-    "ignore": ["src/routeTree.gen.ts", "src/locales/i18n-*", "node_modules", "dist"]
+    "includes": [
+      "**",
+      "!**/src/routeTree.gen.ts",
+      "!**/src/locales/i18n-*",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/public"
+    ]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "lineWidth": 100
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noUnknownAtRules": "off"
+      }
+    }
   }
 }

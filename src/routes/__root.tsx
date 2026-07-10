@@ -1,11 +1,11 @@
-import { Outlet, createRootRoute, useSearch } from "@tanstack/react-router";
+import { createRootRoute, Outlet, useSearch } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { navigatorDetector } from "typesafe-i18n/detectors";
 
 import { DownloadLink } from "~/components/DownloadLink";
 import { LanguageSelect } from "~/components/LanguageSelect";
-import { ThemeSelect } from "~/components/ThemeSelect";
 import { Footer } from "~/components/layout/Footer";
+import { ThemeSelect } from "~/components/ThemeSelect";
 import I18nProvider from "~/locales/i18n-react";
 import type { Locales } from "~/locales/i18n-types";
 import { detectLocale, locales } from "~/locales/i18n-util";

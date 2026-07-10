@@ -1,6 +1,5 @@
-import { type WazaKey, wazaRecord } from "~/data";
-
 import React from "react";
+import { type WazaKey, wazaRecord } from "~/data";
 import { TermDisplay } from "./TermDisplay";
 import { InlineWord } from "./Word";
 

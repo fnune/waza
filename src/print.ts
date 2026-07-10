@@ -1,8 +1,7 @@
 import { execSync, spawn } from "node:child_process";
-import { existsSync } from "node:fs";
-import { promises as fs } from "node:fs";
+import { existsSync, promises as fs } from "node:fs";
 import path from "node:path";
-import { type ViteDevServer, createServer } from "vite";
+import { createServer, type ViteDevServer } from "vite";
 
 import type { Locales } from "./locales/i18n-types";
 import { locales } from "./locales/i18n-util";
